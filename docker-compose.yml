@@ -1,0 +1,13 @@
+services:
+    ml-jupyter:
+        image: fdai-jupyter
+        hostname: fdai-jupyter
+        container_name: fdai-jupyter
+        build:
+            context: .
+            dockerfile: Dockerfile
+        volumes:
+            - ./src:/home/jovyan/work
+        ports:
+            - 8888:8888
+        command: "start-notebook.sh --NotebookApp.token="
