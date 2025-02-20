@@ -76,7 +76,6 @@ es. for first lab:
 %cd ~/src/laboratori/00
 ```
 
-
 ## Personal directory
 
 If you wish use some notebooks please create a directory named `personal` inside `src/`.
