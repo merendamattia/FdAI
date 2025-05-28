@@ -1,0 +1,34 @@
+name: Build LaTeX document
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build_latex:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v4
+
+      - name: Compile main LaTeX document
+        uses: xu-cheng/latex-action@v3
+        with:
+          working_directory: notes
+          root_file: main.tex
+
+      - name: Check if PDF was created
+        run: |
+          ls -la
+          ls -la notes
+          if [ -f "notes/main.pdf" ]; then
+            echo "PDF generated successfully."
+          else
+            echo "PDF generation failed." >&2
+            exit 1
+          fi
