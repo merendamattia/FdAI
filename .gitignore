@@ -1,6 +1,8 @@
 # Ignore Jupyter Notebook checkpoints
 *.ipynb_checkpoints
-
 *__pycache__
+
+# MacOs file
+**/.DS_Store
 
 src/personal
